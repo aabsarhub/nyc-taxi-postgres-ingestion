@@ -4,6 +4,7 @@
 import pandas as pd
 from sqlalchemy import create_engine
 from tqdm.auto import tqdm
+import os
 
 dtype = {
     "VendorID": "Int64",
@@ -33,7 +34,7 @@ parse_dates = [
 def run():
     pg_user = 'root'
     pg_pass = 'root'
-    pg_host = 'localhost'
+    pg_host = os.getenv("PGHOST", "localhost")
     pg_port = '5432'
     pg_db = 'ny_taxi'
 
